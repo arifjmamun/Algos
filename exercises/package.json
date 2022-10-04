@@ -1,7 +1,7 @@
 {
-  "name": "dev",
+  "name": "algos",
   "version": "1.0.0",
-  "description": "",
+  "description": "A set of coding problems with defined directory structure including problem definitions and test cases",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,6 +9,6 @@
   "jest": {
     "testEnvironment": "node"
   },
-  "author": "stephen grider",
+  "author": "Ariful Islam",
   "license": "ISC"
 }
