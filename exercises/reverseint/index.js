@@ -8,6 +8,30 @@
 //   reverseInt(-15) === -51
 //   reverseInt(-90) === -9
 
-function reverseInt(n) {}
+/**
+ * 
+ * @param {number} n 
+ */
+function reverseInt(n) {
+  let reversed = 0, remainder = 0;
+
+  while (n !== 0) {
+    // get the last digit
+    remainder = n % 10;
+    // add the last digit to the reversed number
+    reversed = reversed * 10 + remainder;
+    // remove the last digit from the original number
+    n = parseInt(n / 10);
+  }
+
+  return reversed;
+}
 
 module.exports = reverseInt;
+
+// Solution 1
+// function reverseInt(n) {
+//   const reversed = n.toString().split('').reverse().join('');
+
+//   return parseInt(reversed) * Math.sign(n);
+// }
