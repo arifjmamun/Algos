@@ -12,10 +12,27 @@
  * @param {string} str
  */
 function capitalize(str) {
-  return str
-    .split(" ")
-    .map((word) => word[0].toUpperCase() + word.slice(1))
-    .join(" ");
+  let result = '';
+
+  for (let i = 0; i < str.length; i++) {
+    if (i === 0) {
+      result += str[i].toUpperCase();
+    } else if (str[i - 1] === ' ') {
+      result += str[i].toUpperCase();
+    } else {
+      result += str[i];
+    }
+  }
+
+  return result;
 }
 
 module.exports = capitalize;
+
+// Solution 1
+// function capitalize(str) {
+//   return str
+//     .split(" ")
+//     .map((word) => word[0].toUpperCase() + word.slice(1))
+//     .join(" ");
+// }
