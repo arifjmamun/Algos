@@ -22,14 +22,14 @@
  * @param {number} n 
  */
 function steps(n) {
-  for (let i = 0; i < n; i++) {
-    let step = '';
+  for (let row = 0; row < n; row++) {
+    let stair = '';
     
-    for (let j = 0; j < n; j++) {
-      step += j > i ? ' ' : '#';
+    for (let column = 0; column < n; column++) {
+      stair += column > row ? ' ' : '#';
     }
     
-    console.log(step);
+    console.log(stair);
   }
 }
 
