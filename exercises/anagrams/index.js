@@ -14,11 +14,40 @@
  * @param {string} stringB 
  */
 function anagrams(stringA, stringB) {
-  const pattern = /[^\w]/g
-  stringA = stringA.replace(pattern, "").toLowerCase().split('').sort().join('')
-  stringB = stringB.replace(pattern, "").toLowerCase().split('').sort().join('')
+  const aCharMap = buildCharMap(stringA);
+  const bCharMap = buildCharMap(stringB);
 
-  return stringA === stringB;
+  if (Object.keys(aCharMap).length !== Object.keys(bCharMap).length) return false;
+
+  for (let char in aCharMap) {
+    if (aCharMap[char] !== bCharMap[char]) return false;
+  }
+
+  return true;
+}
+
+/**
+ * 
+ * @param {string} str
+ * @returns {object}
+ */
+function buildCharMap(str) {
+  const charMap = {};
+
+  for (let char of str) {
+    charMap[char] = (charMap[char] + 1) || 1;
+  }
+
+  return charMap;
 }
 
 module.exports = anagrams;
+
+// Solution 1
+// function anagrams(stringA, stringB) {
+//   const pattern = /[^\w]/g
+//   stringA = stringA.replace(pattern, "").toLowerCase().split('').sort().join('')
+//   stringB = stringB.replace(pattern, "").toLowerCase().split('').sort().join('')
+
+//   return stringA === stringB;
+// }
